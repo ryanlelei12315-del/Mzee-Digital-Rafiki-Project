@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Color variables */
+  --color-terracotta: #C0622F;
+  --color-terracotta-light: #D4834F;
+  --color-terracotta-dark: #8B4513;
+  --color-forest: #1B4332;
+  --color-forest-light: #2D5F4C;
+  --color-forest-dark: #0F2419;
+  --color-cream: #FDF6EC;
+  --color-cream-dark: #F5E6D3;
+  --color-gold: #D4A017;
+  --color-gold-light: #E5B84F;
+  --color-gold-dark: #B8860B;
+
+  /* Font sizes - default (medium) */
+  --font-size-xs: 16px;
+  --font-size-sm: 18px;
+  --font-size-base: 20px;
+  --font-size-lg: 22px;
+  --font-size-xl: 24px;
+  --font-size-2xl: 28px;
+  --font-size-3xl: 32px;
+  --font-size-4xl: 36px;
+  --font-size-5xl: 48px;
+}
+
+/* Font size variations */
+body.font-small {
+  --font-size-xs: 14px;
+  --font-size-sm: 16px;
+  --font-size-base: 18px;
+  --font-size-lg: 20px;
+  --font-size-xl: 22px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 28px;
+  --font-size-4xl: 32px;
+  --font-size-5xl: 42px;
+}
+
+body.font-large {
+  --font-size-xs: 18px;
+  --font-size-sm: 20px;
+  --font-size-base: 24px;
+  --font-size-lg: 26px;
+  --font-size-xl: 28px;
+  --font-size-2xl: 32px;
+  --font-size-3xl: 36px;
+  --font-size-4xl: 42px;
+  --font-size-5xl: 54px;
+}
+
+body.font-xlarge {
+  --font-size-xs: 20px;
+  --font-size-sm: 22px;
+  --font-size-base: 28px;
+  --font-size-lg: 30px;
+  --font-size-xl: 32px;
+  --font-size-2xl: 36px;
+  --font-size-3xl: 42px;
+  --font-size-4xl: 48px;
+  --font-size-5xl: 60px;
+}
+
+/* High contrast mode */
+body.high-contrast {
+  --color-terracotta: #D4834F;
+  --color-forest: #0F2419;
+  --color-cream: #FFFFFF;
+  --color-gold: #FFD700;
+}
+
+body.high-contrast * {
+  border-color: currentColor !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: var(--font-size-base);
+  background-color: var(--color-cream);
+  color: var(--color-forest);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Button base styles */
+button {
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Animations */
+@keyframes pulse-green {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(27, 67, 50, 0.7);
+  }
+
+  50% {
+    box-shadow: 0 0 0 20px rgba(27, 67, 50, 0);
+  }
+}
+
+@keyframes pulse-red {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(192, 98, 47, 0.7);
+  }
+
+  50% {
+    box-shadow: 0 0 0 20px rgba(192, 98, 47, 0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes checkmark {
+  0% {
+    stroke-dashoffset: 100;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Utility classes */
+.pulse-green {
+  animation: pulse-green 2s infinite;
+}
+
+.pulse-red {
+  animation: pulse-red 1.5s infinite;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Touch target minimum size */
+.touch-target {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-forest);
+  color: var(--color-cream);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
